@@ -7,22 +7,15 @@ const ingredients = [
   "Condiments",
 ];
 
-// function elementsOfIngridients(vegetables){
-//   const list = document.querySelector('#ingredients');
-//   const newVeges = vegetables.map(vegetable => {
-//     const liVeges = document.createElement('li');
-//     liVeges.textContent = vegetable;
-//     liVeges.classList.add('item');
-//     list.append(liVeges)
-//   });
-//   return newVeges
-// }
-
 function elementsOfIngridients(vegetables) {
   const list = document.querySelector("#ingredients");
-  const newVeges = vegetables
-    .map((vegetable) => `<li class="item">${vegetable}</li>`)
-    .join("");
-  list.innerHTML = newVeges;
+  const newVeges = vegetables.map((vegetable) => {
+    const liVeges = document.createElement("li");
+    liVeges.textContent = vegetable;
+    liVeges.classList.add("item");
+    return liVeges;
+  });
+  return list.append(...newVeges);
 }
+
 elementsOfIngridients(ingredients);
